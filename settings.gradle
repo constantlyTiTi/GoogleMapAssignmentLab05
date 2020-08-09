@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "TingLi_BenoInfantJude_Comp304_Sec01_Lab05"

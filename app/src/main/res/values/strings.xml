@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TingLi_BenoInfantJude_Comp304_Sec01_Lab05</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="normal">Normal</string>
+    <string name="satellite">Satellite</string>
+    <string name="terrain">Terrain</string>
+    <string name="hybrid">Hybrid</string>
+</resources>
