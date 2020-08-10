@@ -395,15 +395,29 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 e.printStackTrace();
             }
             if (addressList.size()>0) {
-                Address address = addressList.get(0);
-                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(latLng).title(location));
-                mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                Toast.makeText(getApplicationContext(),address.getLatitude()+" "+address.getLongitude(),Toast.LENGTH_LONG).show();
-            }else{
-                Toast.makeText(getApplicationContext(),"not found",Toast.LENGTH_LONG);
-            }
+                for (Address item : addressList) {
+                    Address address = item;
+                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                    mMap.addMarker(new MarkerOptions().position(latLng).title(location));
+                    mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                    mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                        @Override
+                        public boolean onMarkerClick(Marker marker) {
+                            if(mMap.getMapType()==GoogleMap.MAP_TYPE_NORMAL){
+                                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                            }
+                            else {
+                                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                            }
+                            return true;
+                        }
+                    });
+
+                    Toast.makeText(getApplicationContext(), address.getLatitude() + " " + address.getLongitude(), Toast.LENGTH_LONG).show();
+                }}else{
+                    Toast.makeText(getApplicationContext(), "not found", Toast.LENGTH_LONG);
+                }
         }
     }
 }
