@@ -217,19 +217,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .geodesic(true);
         mPolyline = mMap.addPolyline(polylineOptions);
 
-//search method related file
-//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            if (ContextCompat.checkSelfPermission(this,
-//                    Manifest.permission.ACCESS_FINE_LOCATION)
-//                    == PackageManager.PERMISSION_GRANTED) {
-//                buildGoogleApiClient();
-//                mMap.setMyLocationEnabled(true);
-//            }
-//        }
-//        else {
-//            buildGoogleApiClient();
-//            mMap.setMyLocationEnabled(true);
-//        }//end search in onMayReady
     }
 
 
